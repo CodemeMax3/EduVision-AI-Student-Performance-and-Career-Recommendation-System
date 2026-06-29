@@ -86,13 +86,18 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'student_career_db',
-        'USER': 'root',
-        'PASSWORD': 'Root@12345',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "defaultdb",
+        "USER": "avnadmin",
+        "PASSWORD": "AVNS_GqR1ZLEkEPbOwJiDCgY",
+        "HOST": "mysql-165afd15-codesob30-c92e.l.aivencloud.com",
+        "PORT": "21537",
+        "OPTIONS": {
+            "ssl": {
+                "ca": "ca.pem",
+            }
+        }
     }
 }
 
