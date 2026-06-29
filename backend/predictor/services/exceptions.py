@@ -1,0 +1,2 @@
+class GeminiServiceError(Exception):
+    pass

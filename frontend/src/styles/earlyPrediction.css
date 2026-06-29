@@ -1,0 +1,400 @@
+/* ==========================================================
+   EARLY PREDICTION PAGE
+========================================================== */
+
+.card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.card-icon {
+  display: none;
+}
+
+.card-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #111827;
+  line-height: 1.1;
+}
+
+.card-subtitle {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #4b5563;
+}
+
+/* ==========================================================
+   FORM GRID
+========================================================== */
+
+.prediction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 35px;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.prediction-grid label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.field-icon {
+  font-size: 18px;
+}
+
+/* ==========================================================
+   INPUTS
+========================================================== */
+
+.prediction-grid input,
+.prediction-grid select {
+  height: 68px;
+  width: 100%;
+
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.18);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  color: #111827;
+
+  font-size: 17px;
+
+  padding: 0 22px;
+
+  transition: .3s ease;
+
+  box-shadow:
+      inset 0 1px 0 rgba(255,255,255,.4),
+      0 8px 24px rgba(0,0,0,.08);
+}
+
+.prediction-grid input::placeholder{
+    color:#94a3b8;
+    font-style:italic;
+    opacity:.8;
+}
+
+.prediction-grid input:hover,
+.prediction-grid select:hover{
+
+    background:rgba(255,255,255,.28);
+
+    border-color:rgba(59,130,246,.35);
+
+}
+
+.prediction-grid input:focus,
+.prediction-grid select:focus{
+
+    outline:none;
+
+    background:rgba(255,255,255,.35);
+
+    border-color:#3b82f6;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 12px 30px rgba(59,130,246,.18),
+    inset 0 1px 0 rgba(255,255,255,.5);
+
+}
+
+/* ==========================================================
+   SELECT
+========================================================== */
+
+.prediction-grid select{
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    cursor:pointer;
+
+    padding-right:48px;
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 18 18'%3E%3Cpath d='M4 7l5 5 5-5' stroke='%233b82f6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+
+    background-repeat:no-repeat;
+
+    background-position:right 18px center;
+
+}
+
+.prediction-grid select:invalid{
+    color:#94a3b8;
+}
+
+.prediction-grid option{
+
+    background:white;
+
+    color:#111827;
+
+}
+
+.prediction-grid option[value=""]{
+
+    color:#94a3b8;
+
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.primary-btn{
+
+    width:280px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#4f46e5,#3b82f6);
+
+    color:white;
+
+    font-size:1.05rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+
+    box-shadow:0 12px 30px rgba(59,130,246,.35);
+
+}
+
+.primary-btn:hover:not(:disabled){
+
+    transform:translateY(-2px);
+
+    box-shadow:0 15px 35px rgba(59,130,246,.45);
+
+}
+
+.primary-btn:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.btn-spinner{
+
+    width:18px;
+
+    height:18px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.3);
+
+    border-top-color:white;
+
+    animation:spin .7s linear infinite;
+
+}
+
+@keyframes spin{
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================================================
+   RESULT CARD
+========================================================== */
+
+.result-card{
+
+    margin-top:30px;
+
+    text-align:center;
+
+}
+
+.result-title{
+
+    margin-bottom:18px;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#111827;
+
+}
+
+/* ==========================================================
+   SCORE RING
+========================================================== */
+
+.score-ring-wrap{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:22px;
+
+}
+
+.ring-score{
+
+font-size:32px;
+
+font-weight:700;
+
+fill:#111827;
+
+}
+
+.ring-label{
+
+font-size:11px;
+
+fill:#6b7280;
+
+}
+
+/* ==========================================================
+   RESULT BADGE
+========================================================== */
+
+.result-band{
+
+display:inline-block;
+
+padding:10px 22px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.35);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,.45);
+
+font-size:14px;
+
+font-weight:600;
+
+color:#374151;
+
+margin-bottom:26px;
+
+}
+
+/* ==========================================================
+   CARD
+========================================================== */
+
+.prediction-card{
+
+margin-top:40px;
+
+padding-top:25px;
+
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media(max-width:992px){
+
+.prediction-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.card-header h1{
+
+font-size:2rem;
+
+}
+
+.card-subtitle{
+
+font-size:.95rem;
+
+}
+
+.prediction-grid{
+
+grid-template-columns:1fr;
+
+gap:22px;
+
+}
+
+.prediction-grid input,
+.prediction-grid select{
+
+height:60px;
+
+font-size:16px;
+
+}
+
+.primary-btn{
+
+width:100%;
+
+}
+
+}

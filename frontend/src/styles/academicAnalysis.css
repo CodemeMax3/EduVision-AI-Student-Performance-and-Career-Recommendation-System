@@ -1,0 +1,215 @@
+.analysis-hero{
+
+  max-width:900px;
+
+  margin:40px auto;
+
+  text-align:center;
+}
+
+.analysis-hero h1{
+
+  font-size:3rem;
+
+  margin-bottom:15px;
+}
+
+.analysis-options{
+
+  display:grid;
+
+  grid-template-columns:
+repeat(auto-fit,minmax(450px,1fr));
+
+  gap:30px;
+
+  margin-top:40px;
+}
+
+.analysis-option-card{
+
+position:relative;
+
+overflow:hidden;
+
+min-height:500px;
+
+padding:50px 45px;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:space-between;
+
+align-items:center;
+
+text-align:center;
+
+border-radius:32px;
+
+transition:all .45s cubic-bezier(.22,1,.36,1);
+
+cursor:pointer;
+
+}
+.analysis-option-card::before{
+
+content:"";
+
+position:absolute;
+
+top:-120px;
+
+left:-150px;
+
+width:220px;
+
+height:450px;
+
+background:linear-gradient(
+
+rgba(255,255,255,0),
+
+rgba(255,255,255,.35),
+
+rgba(255,255,255,0)
+
+);
+
+transform:rotate(25deg);
+
+animation:cardShine 6s linear infinite;
+
+pointer-events:none;
+
+}
+.analysis-option-card:hover{
+
+transform:
+
+translateY(-10px)
+
+scale(1.02);
+
+box-shadow:
+
+0 30px 60px rgba(37,99,235,.20);
+
+}
+.option-icon{
+
+width:95px;
+
+height:95px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+border-radius:50%;
+
+background:
+
+linear-gradient(
+
+135deg,
+
+rgba(255,255,255,.22),
+
+rgba(255,255,255,.08)
+
+);
+
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+box-shadow:
+
+0 12px 30px rgba(37,99,235,.15);
+
+margin-bottom:20px;
+
+transition:.35s;
+
+}
+.option-icon svg{
+
+width:55px;
+
+height:55px;
+
+color:#2563eb;
+
+transition:.35s;
+
+}
+.analysis-option-card:hover .option-icon{
+
+transform:
+
+translateY(-6px)
+
+rotate(10deg);
+
+}
+
+.analysis-option-card:hover .option-icon svg{
+
+transform:scale(1.15);
+
+}
+.analysis-option-card h2{
+
+font-size:2.2rem;
+
+font-weight:800;
+
+margin:20px 0;
+
+color:#0f172a;
+
+}
+
+.analysis-option-card p{
+
+font-size:1.08rem;
+
+line-height:1.8;
+
+max-width:420px;
+
+margin-bottom:35px;
+
+color:#334155;
+
+}
+.analysis-option-card .primary-btn{
+
+width:320px;
+
+height:68px;
+
+font-size:1.18rem;
+
+font-weight:700;
+
+}
+@keyframes cardShine{
+
+0%{
+
+left:-220px;
+
+}
+
+100%{
+
+left:140%;
+
+}
+
+}
