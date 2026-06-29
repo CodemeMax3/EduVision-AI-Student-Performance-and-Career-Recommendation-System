@@ -208,7 +208,7 @@ function Home() {
 
             <div className="footer-project">
               <h3>Project</h3>
-              <a href="https://github.com/yourusername/your-repo-name" target="_blank" rel="noreferrer">
+              <a href="https://github.com/CodemeMax3/EduVision-AI-Student-Performance-and-Career-Recommendation-System" target="_blank" rel="noreferrer">
                 GitHub Repository
               </a>
               <div className="version-container">
