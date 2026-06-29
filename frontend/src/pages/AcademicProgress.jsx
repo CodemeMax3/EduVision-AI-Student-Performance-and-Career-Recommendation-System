@@ -44,14 +44,14 @@ function AcademicProgress() {
       };
 
       const progressResponse = await axios.post(
-        "http://127.0.0.1:8000/api/academic-progress/",
-        payload
-      );
+    "https://eduvision-ai-student-performance-and.onrender.com/api/academic-progress/",
+    payload
+);
 
       const categoryResponse = await axios.post(
-        "http://127.0.0.1:8000/api/performance-category/",
-        payload
-      );
+    "https://eduvision-ai-student-performance-and.onrender.com/api/performance-category/",
+    payload
+);
 
       setProgressScore(
         progressResponse.data.predicted_final_score

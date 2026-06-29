@@ -72,7 +72,7 @@ const FIELD_CONFIG = [
 ];
 
 function ScoreRing({ score }) {
-  const max = 20;
+  const max = 100;
   const pct = Math.min(score / max, 1);
   const r = 54;
   const circ = 2 * Math.PI * r;
@@ -114,7 +114,7 @@ function ScoreRing({ score }) {
           {score}
         </text>
         <text x="70" y="84" textAnchor="middle" className="ring-label">
-          out of 20
+          out of 100
         </text>
       </svg>
     </div>
@@ -165,20 +165,80 @@ function EarlyPrediction() {
   };
 
   const handleSubmit = async () => {
-    try {
-      setLoading(true);
-      const response = await predictStudentScore(formData);
-      const score = response.predicted_score;
-      setResult(score);
-      localStorage.setItem("studentFormData", JSON.stringify(formData));
-      localStorage.setItem("earlyPredictionScore", score);
-    } catch (error) {
-      alert("Prediction failed. Please try again.");
-      console.log(error);
-    } finally {
-      setLoading(false);
+  try {
+    setLoading(true);
+
+    const payload = {
+      school: "GP",
+      sex: "M",
+      age: Number(formData.age),
+      address: "U",
+      famsize: "GT3",
+      Pstatus: "T",
+      Medu: 4,
+      Fedu: 3,
+      Mjob: "teacher",
+      Fjob: "services",
+      reason: "course",
+      guardian: "mother",
+
+      traveltime: Number(formData.traveltime),
+      studytime: Number(formData.studytime),
+      failures: Number(formData.failures),
+
+      schoolsup: "no",
+      famsup: "yes",
+      paid: "no",
+      activities: "yes",
+      nursery: "yes",
+      higher: "yes",
+      internet: "yes",
+      romantic: "no",
+
+      famrel: 4,
+      freetime: 3,
+      goout: 3,
+      Dalc: 1,
+      Walc: 2,
+
+      health: Number(formData.health),
+      absences: Number(formData.absences),
+
+      G1: 14,
+      G2: 15,
+    };
+
+    const response = await predictStudentScore(payload);
+
+    const score = response.predicted_score;
+
+    setResult(score);
+
+    localStorage.setItem(
+      "studentFormData",
+      JSON.stringify(payload)
+    );
+
+    localStorage.setItem(
+      "earlyPredictionScore",
+      score
+    );
+  } catch (error) {
+    console.error(error);
+
+    if (error.response) {
+      console.log("Backend Error:", error.response.data);
+      alert(
+        "Backend Error:\n" +
+        JSON.stringify(error.response.data, null, 2)
+      );
+    } else {
+      alert("Prediction failed.");
     }
-  };
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="page">
